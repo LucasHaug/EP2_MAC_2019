@@ -17,8 +17,9 @@ endif
 clean_all: clean clean_txt
 	@rm -rf ./.vscode
 
-ep1: $(OBJECTS)
-	@gcc -g -Wall -Wextra *.c -o -lm ep1 2>erros.txt
+ep1:
+	# @gcc -g -Wall -Wextra *.c -o -lm ep1 2>erros.txt
+	gcc -g -Wall -Wextra *.c -o ep1 -lm
 
 run: all
 ifeq ($(OS), Windows_NT)
