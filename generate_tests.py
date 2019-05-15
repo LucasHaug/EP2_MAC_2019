@@ -2,23 +2,7 @@
 
 import random
 
-# k, c, max_palpites, senha, palpites
-k = random.randint(1, 9)
-c = random.randint(1, 9)
-mp = random.randint(1, 100)
 
-s = ""
-for i in range(k):
-    s += str(random.randint(1, c))
+seed = random.randint(1, 65535)
 
-palpites = []
-for i in range(mp):
-    palpite = ""
-    for i in range(k):
-        palpite += str(random.randint(1, c))
-    palpites.append(palpite)
-
-palp = " ".join(palpites)
-
-# print(f'{k} {c} {mp} {s} {palp}')
-print(" %d %d %d %s %s" %(k, c, mp, s, palp))
+print("%d" %(seed))
