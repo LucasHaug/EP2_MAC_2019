@@ -18,8 +18,8 @@ clean_all: clean clean_txt
 	@rm -rf ./.vscode
 
 ep:
-	# @gcc -g -Wall -Wextra *.c -o -lm ep 2>erros.txt
-	gcc -g -Wall -Wextra *.c -o ep -lm
+	# @gcc -g -Wall -Wextra *.c -o ep 2>erros.txt
+	gcc -g -Wall -Wextra *.c -o ep
 
 run: all
 ifeq ($(OS), Windows_NT)

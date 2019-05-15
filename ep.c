@@ -1,13 +1,22 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-#include <math.h>  // TIRAR DEPOIS
-
 #define NUMERO_DE_SIMULACOES 10000
 
-double raiz_cubica(double caixa) {
-    /**< Implementar de verdade */
-    return pow(caixa, 1.0 / 3.0);
+double raiz_cubica(double x) {
+    if (x == 0) {
+        return 0;
+    }
+
+    double termo = x;
+    double novo_termo = x;
+
+    do {
+        termo = novo_termo;
+        novo_termo = 2.0*termo/3.0 + x/(3.0*termo*termo);
+    } while (termo - novo_termo > 10e-8 || novo_termo - termo > 10e-8);
+    
+    return novo_termo;
 }
 
 int chao(double valor) {
