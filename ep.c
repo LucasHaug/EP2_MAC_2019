@@ -3,6 +3,8 @@
 
 #define NUMERO_DE_SIMULACOES 10000
 
+#define abs(x) ((x) < 0 ? -(x) : (x)) 
+
 double raiz_cubica(double x) {
     if (x == 0) {
         return 0;
@@ -14,7 +16,7 @@ double raiz_cubica(double x) {
     do {
         termo = novo_termo;
         novo_termo = 2.0*termo/3.0 + x/(3.0*termo*termo);
-    } while (termo - novo_termo > 10e-8 || novo_termo - termo > 10e-8);
+    } while (abs(termo - novo_termo) > 1e-8);
     
     return novo_termo;
 }
