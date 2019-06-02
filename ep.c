@@ -5,7 +5,7 @@
 
 #define abs(x) ((x) < 0 ? -(x) : (x)) 
 
-double raiz_cubica(double x) {
+double RaizCubica(double x) {
     if (x == 0) {
         return 0;
     }
@@ -25,8 +25,8 @@ int chao(double valor) {
     return valor;
 }
 
-double nova_caixa(double caixa) {
-    double rifa = 9821.0 * raiz_cubica(caixa) + 0.211327;
+double NovaCaixa(double caixa) {
+    double rifa = 9821.0 * RaizCubica(caixa) + 0.211327;
     double caixa_nova = rifa - chao(rifa);
     return caixa_nova;
 }
@@ -59,7 +59,7 @@ int main() {
             num_cartas_apost = 0;
 
             while (apostador < teto) {
-                caixa = nova_caixa(caixa);
+                caixa = NovaCaixa(caixa);
                 carta = chao(caixa * 10 + 1);
 
                 if (carta == 8 || carta == 9 || carta == 10) {
@@ -80,7 +80,7 @@ int main() {
             }
 
             while (banca_continua) {
-                caixa = nova_caixa(caixa);
+                caixa = NovaCaixa(caixa);
                 carta = chao(caixa * 10 + 1);
 
                 if (carta == 8 || carta == 9 || carta == 10) {
