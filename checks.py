@@ -105,14 +105,14 @@ def test_ep(seed, just_num_of_defeats, goodness):
     return passed
 
 
-just_num_of_defeats = bool(input("Just number of defeats? [True/False]: "))
-goodness = int(input("Goodness? [0/1/2]: "))
+# just_num_of_defeats = bool(input("Just number of defeats? [True/False]: "))
+# goodness = int(input("Goodness? [0/1/2]: "))
 
 for i in range(100):
 
     seed = random.randint(1, 2**31-1)
-    passed = test_ep(seed, just_num_of_defeats, goodness)
-    # passed = test_ep(seed, False, 0)
+    # passed = test_ep(seed, just_num_of_defeats, goodness)
+    passed = test_ep(seed, False, 0)
     
     if passed:
         print(f'[OK] Teste {i + 1}')

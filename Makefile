@@ -18,8 +18,8 @@ clean_all: clean clean_txt
 	@rm -rf ./.vscode
 
 ep:
-	# @gcc -g -Wall -Wextra *.c -o ep 2>erros.txt
-	@gcc -g -Wall -Wextra ep.c -o ep
+	@gcc -g -Wall -Wextra *.c -o teste 2>erros.txt
+	# @gcc -g -Wall -Wextra ep.c -o teste
 
 run: all
 ifeq ($(OS), Windows_NT)
@@ -35,8 +35,10 @@ test.so: $(OBJECTS)
 	@gcc -c ep.c tester.c -fPIC
 	@gcc -shared $(OBJECTS) -o test.so -fPIC
 
-test: test.so
+test_functions: test.so
 	@python tester.py
 
+test_results:
+	@python3 checks.py 
 
-.PHONY: all clean clean_txt clean_all ep run test.so test
+.PHONY: all clean clean_txt clean_all ep run test.so test_functions test_results
