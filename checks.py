@@ -27,7 +27,7 @@ def test_ep(seed, just_num_of_defeats, goodness):
         if j == '0.5':
             break
 
-    answer_list = answer_list[0:15]
+    answer_list = answer_list[:15]
 
     # Students code
 
@@ -47,8 +47,8 @@ def test_ep(seed, just_num_of_defeats, goodness):
         if j == '0.5':
             break
 
-    correcting_list = correcting_list[0:15]
-        
+    correcting_list = correcting_list[:15]
+
     median_list = []
     for i in range(len(correcting_list)):
         median_list.append(int(answer_list[i][1]) - int(correcting_list[i][1]))
@@ -108,18 +108,19 @@ def test_ep(seed, just_num_of_defeats, goodness):
 # just_num_of_defeats = bool(input("Just number of defeats? [True/False]: "))
 # goodness = int(input("Goodness? [0/1/2]: "))
 
+test_ok = 0
+
 for i in range(100):
 
     seed = random.randint(1, 2**31-1)
     # passed = test_ep(seed, just_num_of_defeats, goodness)
-    passed = test_ep(seed, False, 0)
+    # passed = test_ep(seed, False, 0)
+    passed = test_ep(seed, True, 0)
     
     if passed:
         print(f'[OK] Teste {i + 1}')
+        test_ok += 1
     else:
         print(f'[FALHA] Teste {i + 1}')
-        
 
-
-
-
+print(f'\nNumber of tests that succeed: {test_ok}')

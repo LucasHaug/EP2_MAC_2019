@@ -28,11 +28,13 @@ else
 	@./ep 
 endif
 
-SOURCES = ep.c tester.c
+SOURCES = $(wildcard *.c)
 OBJECTS = $(SOURCES:.c=.o)
 
+%.o: %.c
+	@gcc -c $< -o $@ -fPIC
+
 test.so: $(OBJECTS)
-	@gcc -c ep.c tester.c -fPIC
 	@gcc -shared $(OBJECTS) -o test.so -fPIC
 
 test_functions: test.so
